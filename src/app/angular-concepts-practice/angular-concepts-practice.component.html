@@ -1,0 +1,154 @@
+
+
+
+<input style = "color:green;
+                margin-top: 40px; 
+                margin-left: 100px;" 
+[value]='title'>
+
+
+  <h1>
+   Event binding example
+  </h1>
+  <button (click)="Eventbinding()">Submit</button> 
+
+
+  <h1>Two way data binding in  angular</h1>
+
+  <input type="text" [(ngModel)]="data">
+  <button (click)="Twowaydata()">Submit</button> 
+
+
+
+  <h1>
+	<button (click)="toggleOn =!toggleOn">ng-if illustration</button>
+  </h1>
+  <div *ngIf="!toggleOn">
+  <h2>Hello </h2>
+  <p>Good morning to you,click the button to view</p>
+  </div>
+  <hr>
+  <p>Today is Monday and this is a dummy text element to make you feel better</p>
+  <p>Understanding the ngIf directive with the else clause</p>
+
+
+
+
+  <ul>
+    <li *ngFor="let movie of Movies; let i = index">
+      {{ i + 1 }} : {{ movie.name }}
+    </li>
+  </ul>
+
+
+
+
+  <h2>Select Country</h2>
+  <select (change)="SetDropDownValue($event)">
+    <option value="">Select</option>
+    <option value="In">In</option>
+    <option value="US">US</option>
+    <option value="UK">UK</option>
+  </select>
+  <h2>You Have Selected</h2>
+  <div [ngSwitch] = 'dropDownValue'>
+    <h3 *ngSwitchCase="'In'">India</h3>
+    <h3 *ngSwitchCase="'US'">United State</h3>
+    <h3 *ngSwitchCase="'UK'">United Kingdom</h3>
+    <h3 *ngSwitchDefault="">You have not selected any country</h3>
+  </div>
+
+
+
+
+  <div [ngClass]="'first'">
+    <p [ngClass]="'second'">ngClass as a String</p>
+</div>
+
+<h4>NgStyle</h4>
+<ul *ngFor="let person of people">
+  <li [ngStyle]="{'color':getColor(person.country)}"> {{ person.name }} ({{ person.country }})
+  </li>
+</ul>
+
+
+
+
+<table>  
+    <thead>  
+        <tr>  
+            <th>Code</th>  
+            <th>Name</th>  
+            <th>Gender</th>  
+            <th>Annual Salary</th>  
+            <th>Date of Birth</th>  
+        </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor='let employee of employees'>  
+            <td>{{employee.code}}</td>  
+
+            <td>{{employee.name|uppercase}}</td>  
+
+            <td>{{employee.gender}}</td>  
+            <td>{{employee.annualSalary}}</td>  
+            <td>{{employee.dateOfBirth}}</td>  
+        </tr>  
+        <tr *ngIf="!employees || employees.length==0">  
+            <td colspan="5">  
+                No employees to display  
+            </td>  
+        </tr>  
+    </tbody>  
+</table>  
+
+
+
+
+
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+ 
+    <p>
+      <label for="firstname">First Name </label>
+      <input type="text" id="firstname" name="firstname" formControlName="firstname">
+    </p>
+   
+    <p>
+      <label for="lastname">Last Name </label>
+      <input type="text" id="lastname" name="lastname" formControlName="lastname">
+    </p>
+   
+    <p>
+      <label for="email">Email </label>
+      <input type="text" id="email" name="email" formControlName="email">
+    </p>
+   
+    <p>
+      <label for="gender">Geneder </label>
+      <input type="radio" value="male" id="gender" name="gender" formControlName="gender"> Male
+      <input type="radio" value="female" id="gender" name="gender" formControlName="gender"> Female
+    </p>
+   
+    <p>
+      <label for="isMarried">Married </label>
+      <input type="checkbox" id="isMarried" name="isMarried" formControlName="isMarried">
+    </p>
+   
+   
+    <p>
+      <label for="country">country </label>
+      <select id="country" name="country" formControlName="country">
+        <option value="1">India</option>
+        <option value="2">USA</option>
+        <option value="3">England</option>
+        <option value="4">Singapore</option>
+      </select>
+    </p>
+   
+   
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+   
+  </form>

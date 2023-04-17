@@ -1,0 +1,7 @@
+<p>parent-component works!</p>
+
+
+<h1>Message from Service : {{sendingdata}}<h1>
+
+
+<app-child-component [Message]="Message" (messageEvent)="receiveMessage($event)"></app-child-component>
